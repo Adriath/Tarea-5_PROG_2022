@@ -4,7 +4,8 @@ package modeladopersonaje;
 import excepcionespersonaje.ExcepcionPersonaje;
 
 /**
- *
+ * Clase en la que se modela a los personajes que van a participar en la batalla.
+ * 
  * @author Adrián Arjona
  */
 public class Personaje {
@@ -19,12 +20,12 @@ public class Personaje {
     características de los personajes.
     */
     
-    final static byte MAX_FUERZA = 100 ;
-    final static byte MAX_INTELIGENCIA = 100 ;
-    final static byte MAX_VIDA = 100 ;
-    final static byte MIN_FUERZA = 0 ;
-    final static byte MIN_INTELIGENCIA = 0 ;
-    final static byte MIN_VIDA = 0 ;
+    public final static byte MAX_FUERZA = 100 ;
+    public final static byte MAX_INTELIGENCIA = 100 ;
+    public final static byte MAX_VIDA = 100 ;
+    public final static byte MIN_FUERZA = 0 ;
+    public final static byte MIN_INTELIGENCIA = 0 ;
+    public final static byte MIN_VIDA = 0 ;
     
     // Variable estática que se irá incrementando con la creación de cada personaje
     
@@ -79,7 +80,7 @@ public class Personaje {
         }
 
         public void setInteligencia(byte inteligencia) throws ExcepcionPersonaje{
-            if ((inteligencia > MIN_INTELIGENCIA) && (inteligencia < MAX_INTELIGENCIA)) 
+            if ((inteligencia >= MIN_INTELIGENCIA) && (inteligencia <= MAX_INTELIGENCIA)) 
             {
                 this.inteligencia = inteligencia ;
             }
@@ -97,7 +98,7 @@ public class Personaje {
         }
 
         public void setFuerza(byte fuerza) throws ExcepcionPersonaje{
-            if ((fuerza > MIN_FUERZA) && (fuerza < MAX_FUERZA)) 
+            if ((fuerza >= MIN_FUERZA) && (fuerza <= MAX_FUERZA)) 
             {
                 this.fuerza = fuerza ;
             }
@@ -107,11 +108,13 @@ public class Personaje {
                         " y menor que " + MAX_FUERZA + "\n") ;
             }
         }
-
-    @Override
-    public String toString() {
-        return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", inteligencia=" + inteligencia + ", fuerza=" + fuerza + '}';
-    }
- 
         
+        // TO STRING
+
+        @Override
+        public String toString() {
+            return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", inteligencia=" + inteligencia + ", fuerza=" + fuerza + '}';
+        }
+ 
+    
 }

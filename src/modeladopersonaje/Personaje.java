@@ -176,9 +176,10 @@ public class Personaje {
         short poderPersonaje1 ; // Personaje invocador del método.
         short poderPersonaje2 ; // Personaje pasado por parámetros.
         
+        
         poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ;
         poderPersonaje2 = (short)(p.fuerza + p.inteligencia) ;
-        
+
         if (poderPersonaje1 > poderPersonaje2) // Si el P1 supera al P2...
         {
             p.restarVida(); // ...quita 20 puntos de vida a P2.
@@ -192,5 +193,6 @@ public class Personaje {
             this.restarVida(); // ...resta 20 puntos de vida a P1...
             p.restarVida(); // ...y a P2.
         }
+        
     }
 }

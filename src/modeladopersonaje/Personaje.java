@@ -129,15 +129,68 @@ public class Personaje {
             this.vida = MIN_VIDA ; // ...que no sobrepase el valor mínimo.
         }
     }
+    
+    private void restarVida(byte puntosVida){ // MÉTODO PARA RESTAR VIDA CON PARÁMETROS
+        
+        if (this.vida > MIN_VIDA) // Si la vida del personaje es mayor que la vida mínima...
+        {
+            this.vida -= puntosVida ; // ...réstale los puntos de vida que se hayan pasado por parámetros.
+        }
+        else // Si la vida está por debajo del mínmo...
+        {
+            this.vida = MIN_VIDA ; // ...que no sobrepase el mínimo.
+        }
+    }
+    
+    private void valoresAleatorios(){ // MÉTODO PARA DAR VALORES ALEATORIOS
+        
+        byte fuerza ;
+        byte inteligencia ;
+        
+        boolean validador = false ;
+        
+        do
+        {
+            fuerza = (byte)(Math.random()*MAX_FUERZA) ;
+            inteligencia = (byte)(Math.random()*MAX_INTELIGENCIA) ;
+            
+            try
+            {
+                this.setFuerza(fuerza);
+                this.setInteligencia(inteligencia);
+                validador = true ;
+            }
+            catch (ExcepcionPersonaje e){ 
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            
+        } while (!validador);
+    }
+    
         
     public void batalla(Personaje p){ // MÉTODO DE BATALLA
         
-        short poderPersonaje1 ;
-        short poderPersonaje2 ;
+        short poderPersonaje1 ; // Personaje invocador del método.
+        short poderPersonaje2 ; // Personaje pasado por parámetros.
         
         poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ;
         poderPersonaje2 = (short)(p.fuerza + p.inteligencia) ;
         
-        
+        if (poderPersonaje1 > poderPersonaje2) // Si el P1 supera al P2...
+        {
+            p.restarVida(); // ...quita 20 puntos de vida a P2.
+        }
+        else if (poderPersonaje2 > poderPersonaje1) // Si ocurre al revés...
+        {
+            this.restarVida(); // ...quita 20 puntos de vida a P1.
+        }
+        else if (poderPersonaje1 == poderPersonaje2) // Si empatan...
+        {
+            this.restarVida(); // ...resta 20 puntos de vida a P1...
+            p.restarVida(); // ...y a P2.
+        }
     }
 }

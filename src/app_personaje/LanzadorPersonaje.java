@@ -28,8 +28,6 @@ public class LanzadorPersonaje {
         System.out.println("5. Modificar personaje 1");
         System.out.println("6. Modificar personaje 2");
         System.out.println("7. Salir");
-        
-        System.out.println("\nSELECCIONA UNA OPCIÓN:\n");
     }
     
     private static void crearPersonaje1(){ // CREA PRESONAJE 1
@@ -103,9 +101,33 @@ public class LanzadorPersonaje {
     
     public static void main(String[] args) { // MÉTODO MAIN
         
+        int opcion ;
+        
         try
         {
             System.out.println("MENSAJE DE BIENVENIDA"); // ---------------------------- EDITAR ---------------------------
+            
+            mostrarMenu();
+            
+            opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
+            
+            switch (opcion)
+            {
+                case 1: // Crear personaje 1
+                    
+                    
+                    break;
+                    
+                case 2: // Crear personaje 2
+                    crearPersonaje2() ;
+                    
+                    break;
+                    
+                case 3: // Batalla
+                    
+                case 4: // Mostrar personajes
+                    
+            }
         }
         catch (ExcepcionPersonaje e){
             System.out.println(e.getMessage());

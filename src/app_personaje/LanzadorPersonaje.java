@@ -64,7 +64,7 @@ public class LanzadorPersonaje {
         
     }
     
-    private static void crearPersonaje2(){ // CREA PERSONAJE 2
+    private static void crearPersonaje2(){ // CREA PERSONAJE 2 (puede que no haga falta)
         
         String nombre ;
         byte inteligencia ;

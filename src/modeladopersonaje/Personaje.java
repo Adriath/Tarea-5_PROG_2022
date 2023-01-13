@@ -116,5 +116,28 @@ public class Personaje {
             return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", inteligencia=" + inteligencia + ", fuerza=" + fuerza + '}';
         }
  
-    
+    // ---------------- MÉTODOS ------------------
+        
+    private void restarVida(){ // METODO PARA RESTAR VIDA
+        
+        if (this.vida > MIN_VIDA) // Si la vida del personaje es mayor que la vida mínima...
+        {
+            this.vida -= 20 ; // ...réstale 20 puntos de vida.
+        }
+        else // Si la vida está por debajo del mínimo...
+        {
+            this.vida = MIN_VIDA ; // ...que no sobrepase el valor mínimo.
+        }
+    }
+        
+    public void batalla(Personaje p){ // MÉTODO DE BATALLA
+        
+        short poderPersonaje1 ;
+        short poderPersonaje2 ;
+        
+        poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ;
+        poderPersonaje2 = (short)(p.fuerza + p.inteligencia) ;
+        
+        
+    }
 }

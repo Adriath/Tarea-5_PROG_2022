@@ -32,74 +32,64 @@ public class LanzadorPersonaje {
         System.out.println("7. Salir");
     }
     
-//    private static void crearPersonaje1(){ // CREA PRESONAJE 1
-//        
-//        String nombre ;
-//        byte inteligencia ;
-//        byte fuerza ;
-//        
-//        boolean validador = false ;
-//        
-//        
-//        System.out.println("\n-- Vas a crear el personaje 1 --\n");
-//        
-//        nombre = Utilidades.leerString("?Cuál es su nombre?") ;
-//        
-//        inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA + 
-//            " y " + Personaje.MAX_INTELIGENCIA + "):") ;
-//            
-//        fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + 
-//                " y " + Personaje.MAX_FUERZA + "):") ;
-//        
-//        try
-//        {
-//            Personaje personaje1 = new Personaje(nombre, inteligencia, fuerza) ;
-//        }
-//        catch (ExcepcionPersonaje e){
-//            System.out.println(e.getMessage());
-//        }
-//        catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        
-//    }
-//    
-//    private static void crearPersonaje2(){ // CREA PERSONAJE 2 (puede que no haga falta)
-//        
-//        String nombre ;
-//        byte inteligencia ;
-//        byte fuerza ;
-//        
-//        boolean validador = false ;
-//        
-//        
-//        System.out.println("\n-- Vas a crear el personaje 2 --\n");
-//        
-//        nombre = Utilidades.leerString("?Cuál es su nombre?") ;
-//        
-//        do 
-//        {
-//            inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA + 
-//            " y " + Personaje.MAX_INTELIGENCIA + "):") ;
-//            
-//            fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + 
-//                    " y " + Personaje.MAX_FUERZA + "):") ;
-//
-//            try
-//            {
-//                Personaje personaje2 = new Personaje(nombre, inteligencia, fuerza) ;
-//                validador = true ;
-//            }
-//            catch (ExcepcionPersonaje e){
-//                System.out.println(e.getMessage());
-//            }
-//            catch (Exception e) {
-//                System.out.println(e.getMessage());
-//            }
-//            
-//        } while (validador);
-//        
-//    }
+    private static void crearPersonaje(Personaje p){ // CREA PRESONAJE 1
+        
+        String nombre ;
+        byte inteligencia ;
+        byte fuerza ;
+        
+        boolean validador = false ;
+        
+        
+        nombre = Utilidades.leerString("?Cuál es su nombre?") ; // Pregunta el nombre del personaje
+        p.setNombre(nombre); // Lo guarda en el objeto Personaje
+        
+        do 
+        {
+            try
+            {
+                inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA +  // Pregunta por la inteligencia del personaje
+                " y " + Personaje.MAX_INTELIGENCIA + "):") ;
+            
+                p.setInteligencia(inteligencia); // Lo guarda en el  objeto Personaje
+                
+                validador = true ;
+            }
+            catch (ExcepcionPersonaje e){
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e){
+                System.out.println("Algún error ocurrió.");
+            }
+            
+        } while (!validador);
+        
+        validador = false ; // Reseteamos este valor para que funcione en el siguiente bucle.
+            
+        
+        do 
+        {
+            try
+            {
+                fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + // Pregunta por la fuerza del personaje
+                " y " + Personaje.MAX_FUERZA + "):") ;
+                
+                p.setFuerza(fuerza); // Lo guarda en el objeto Personaje
+                
+                validador = true ;
+            }
+            catch (ExcepcionPersonaje e){
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e){
+                System.out.println("Algún error ocurrió.");
+            }
+            
+            
+        } while (!validador);
+        
+    }
+    
     
     public static void main(String[] args) { // MÉTODO MAIN
 
@@ -110,6 +100,7 @@ public class LanzadorPersonaje {
             byte fuerza = Personaje.MAX_FUERZA ;
 
             int opcion ;
+            boolean validador = false ;
             boolean personaje1Creado = false ;
             boolean personaje2Creado = false ;
 
@@ -119,79 +110,71 @@ public class LanzadorPersonaje {
             
             System.out.println("MENSAJE DE BIENVENIDA"); // ---------------------------- EDITAR ---------------------------
             
-            mostrarMenu();
-            
-            opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
-            
-            switch (opcion)
+            do 
             {
-                case 1: // Crear personaje 1
+            
+                mostrarMenu();
+            
+                opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
+            
+                switch (opcion)
+                {
+                    case 1: // Crear personaje 1
                     
-                    if (!personaje1Creado) 
-                    {
-                        System.out.println("\n-- Vas a crear el personaje 1 --\n");
+                        if (!personaje1Creado) 
+                        {
+                            System.out.println("\n-- Vas a crear el personaje 1 --\n");
+
+                            crearPersonaje(personaje1) ;
+                            
+                            personaje1Creado = true ;
+                        }
+                        else
+                        {
+                            System.out.println("\nEl personaje 1 ya ha sido creado.\n");
+                        }
+
+                        break;
                     
-                        nombre = Utilidades.leerString("?Cuál es su nombre?") ;
-                        personaje1.setNombre(nombre);
+                    case 2: // Crear personaje 2
+                    
+                        if (!personaje2Creado) 
+                        {
+                            System.out.println("\n-- Vas a crear el personaje 2 --\n");
 
-                        inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA + 
-                        " y " + Personaje.MAX_INTELIGENCIA + "):") ;
-                        personaje1.setInteligencia(inteligencia);
+                            crearPersonaje(personaje2) ;
 
-                        fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + 
-                        " y " + Personaje.MAX_FUERZA + "):") ;
-                        personaje1.setFuerza(fuerza);
+                            personaje2Creado = true ;
+                        }
+                        else
+                        {
+                            System.out.println("\nEl personaje 2 ya ha sido creado.\n");
+                        }
+
+                        break;
+                    
+                    case 3: // Batalla
+                    
+                    case 4: // Mostrar personajes
+                    
+                        if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
+                        {
+                            System.out.println(personaje1.toString());
+                            System.out.println(personaje2.toString());
+                        }
+                        else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
+                        {
+                            System.out.println("\nTienes que crear primero los personajes.\n");
+                        }
                         
-                        personaje1Creado = true ;
-                    }
-                    else
-                    {
-                        System.out.println("\nEl personaje 1 ya ha sido creado.\n");
-                    }
+                        break ;
                     
-                    break;
+                    case 5: // Modificar personaje 1
+                    case 6: // Modificar personaje 2
+                    case 7: // Salir
                     
-                case 2: // Crear personaje 2
-                    
-                    if (!personaje2Creado) 
-                    {
-                        System.out.println("\n-- Vas a crear el personaje 2 --\n");
-                    
-                        nombre = Utilidades.leerString("?Cuál es su nombre?") ;
-                        personaje2.setNombre(nombre);
-
-                        inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA + 
-                        " y " + Personaje.MAX_INTELIGENCIA + "):") ;
-                        personaje2.setInteligencia(inteligencia);
-
-                        fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + 
-                        " y " + Personaje.MAX_FUERZA + "):") ;
-                        personaje2.setFuerza(fuerza);
-
-                        personaje2 = new Personaje(nombre, inteligencia, fuerza) ;
-                        
-                        personaje2Creado = true ;
-                    }
-                    else
-                    {
-                        System.out.println("\nEl personaje 2 ya ha sido creado.\n");
-                    }
-                    
-                    break;
-                    
-                case 3: // Batalla
-                    
-                case 4: // Mostrar personajes
-                    
-                    System.out.println(personaje1.toString());
-                    System.out.println(personaje2.toString());
-                    break ;
-                    
-                case 5: // Modificar personaje 1
-                case 6: // Modificar personaje 2
-                case 7: // Salir
-                    
-            }
+                }
+            } while (!validador);
         }
         catch (ExcepcionPersonaje e){
             System.out.println(e.getMessage());

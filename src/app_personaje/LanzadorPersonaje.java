@@ -292,7 +292,31 @@ public class LanzadorPersonaje {
                         break ;
                     
                     case 5: // MODIFICAR PERSONAJE 1
+                        
+                        if (personaje1Creado) // Si el personaje está creado lo modificará.
+                        {
+                            modificaPersonaje(personaje1);
+                        }
+                        else // Si no está creado avisará y saldrá al menú.
+                        {
+                            System.out.println("\nEl personaje 1 no está creado. Debes crearlo primero.\n");
+                        }
+                        
+                        break;
+                        
                     case 6: // MODIFICAR PERSONAJE 2
+                        
+                        if (personaje1Creado) // Si el personaje está creado lo modificará.
+                        {
+                            modificaPersonaje(personaje2);
+                        }
+                        else // Si no está creado avisará y saldrá al menú.
+                        {
+                            System.out.println("\nEl personaje 2 no está creado. Debes crearlo primero.\n");
+                        }
+                        
+                        break;
+                        
                     case 7: // SALIR
                     
                 }

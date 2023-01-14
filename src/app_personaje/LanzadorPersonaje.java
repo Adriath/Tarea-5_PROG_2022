@@ -121,6 +121,8 @@ public class LanzadorPersonaje {
                     p.setNombre(nombre);
                     
                     System.out.println("\nEl nombre del personaje ha sido modificado.\n");
+                    
+                    validador = true ;
 
                     break;
                 
@@ -144,7 +146,7 @@ public class LanzadorPersonaje {
                         
                     } while (!validador);
                     
-                    System.out.println("\nLa inteligencia del pseronaje ha sido modificada.");
+                    System.out.println("\nLa inteligencia del personaje ha sido modificada.");
                     
                     break;
                     
@@ -295,6 +297,8 @@ public class LanzadorPersonaje {
                         
                         if (personaje1Creado) // Si el personaje está creado lo modificará.
                         {
+                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
+                            
                             modificaPersonaje(personaje1);
                         }
                         else // Si no está creado avisará y saldrá al menú.
@@ -308,6 +312,8 @@ public class LanzadorPersonaje {
                         
                         if (personaje1Creado) // Si el personaje está creado lo modificará.
                         {
+                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
+                            
                             modificaPersonaje(personaje2);
                         }
                         else // Si no está creado avisará y saldrá al menú.
@@ -319,6 +325,11 @@ public class LanzadorPersonaje {
                         
                     case 7: // SALIR
                     
+                    default:
+                        
+                        System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
+                        
+                        break;
                 }
             } while (!validador);
         }

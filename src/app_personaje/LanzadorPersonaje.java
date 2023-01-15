@@ -226,7 +226,7 @@ public class LanzadorPersonaje {
             Personaje personaje2 = new Personaje(nombre, inteligencia, fuerza) ;
             
             Utilidades.leerString("Bienvenido al sistema, introduce la contrsaeño:"); // --------- SISTEMA PROVISIONAL DE CONTRASEÑA -------------
-                    System.out.println("Contaseña correcta.");
+                    System.out.println("Contraseña correcta.");
             System.out.println("MENSAJE DE BIENVENIDA"); // ---------------------------- EDITAR ---------------------------
             
             do 

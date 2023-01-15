@@ -69,6 +69,7 @@ public class Utilidades {
         return entero ;
     }
     
+    
      /**
      * Método que pide al usuario un número corto pudiendo personalizar el 
      * mensaje de petición.

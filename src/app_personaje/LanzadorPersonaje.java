@@ -278,6 +278,19 @@ public class LanzadorPersonaje {
                         {
                             personaje1.batalla(personaje2);
                             
+                            if (personaje1.compruebaVida()) 
+                            {
+                                System.out.println("GANA EL PERSONAJE 2"); // -------------- PROVISIONAL
+                                
+                                validador = true ;
+                            }
+                            else if (personaje2.compruebaVida()) 
+                            {
+                                System.out.println("GANA EL PERSONAJE 1"); // -------------- PROVISIONAL
+                                
+                                validador = true ;
+                            }
+                            
                             personaje1.valoresAleatorios();
                             personaje2.valoresAleatorios();
                         }

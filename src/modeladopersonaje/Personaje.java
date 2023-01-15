@@ -170,6 +170,18 @@ public class Personaje {
         } while (!validador);
     }
     
+    public boolean compruebaVida(){ // COMPRUEBA LA VIDA DEL PERSONAJE
+        
+        boolean muerto = false ;
+        
+        if (this.vida == MIN_VIDA) { // Si la vida del personaje es igual a la vida mínima...
+            
+            muerto = true ; // ...el personaje habrá muerto.
+        }
+        
+        return muerto ;
+    }
+    
         
     public void batalla(Personaje p){ // MÉTODO DE BATALLA
         

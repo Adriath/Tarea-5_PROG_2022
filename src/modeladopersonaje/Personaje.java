@@ -142,7 +142,7 @@ public class Personaje {
         }
     }
     
-    private void valoresAleatorios(){ // MÉTODO PARA DAR VALORES ALEATORIOS
+    public void valoresAleatorios(){ // MÉTODO PARA DAR VALORES ALEATORIOS
         
         byte fuerza ;
         byte inteligencia ;

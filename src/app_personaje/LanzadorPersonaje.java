@@ -146,7 +146,7 @@ public class LanzadorPersonaje {
                         
                     } while (!validador);
                     
-                    System.out.println("\nLa inteligencia del personaje ha sido modificada.");
+                    System.out.println("\nLa inteligencia del personaje  ha sido modificada.");
                     
                     break;
                     
@@ -203,6 +203,11 @@ public class LanzadorPersonaje {
         } while (!validador);
     }
     
+    private static void muestraPersonajes(Personaje p1, Personaje p2){
+        
+        System.out.println(p1.toString());
+        System.out.println(p2.toString());
+    }
     
     public static void main(String[] args) { // MÉTODO MAIN
 
@@ -220,7 +225,8 @@ public class LanzadorPersonaje {
             Personaje personaje1 = new Personaje(nombre, inteligencia, fuerza) ;
             Personaje personaje2 = new Personaje(nombre, inteligencia, fuerza) ;
             
-            
+            Utilidades.leerString("Bienvenido al sistema, introduce la contrsaeño:"); // --------- SISTEMA PROVISIONAL DE CONTRASEÑA -------------
+                    System.out.println("Contaseña correcta.");
             System.out.println("MENSAJE DE BIENVENIDA"); // ---------------------------- EDITAR ---------------------------
             
             do 
@@ -270,7 +276,10 @@ public class LanzadorPersonaje {
                         
                         if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
                         {
+                            personaje1.batalla(personaje2);
                             
+                            personaje1.valoresAleatorios();
+                            personaje2.valoresAleatorios();
                         }
                         else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
                         {
@@ -283,8 +292,7 @@ public class LanzadorPersonaje {
                     
                         if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
                         {
-                            System.out.println(personaje1.toString());
-                            System.out.println(personaje2.toString());
+                            muestraPersonajes(personaje1, personaje2);
                         }
                         else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
                         {
@@ -325,6 +333,10 @@ public class LanzadorPersonaje {
                         
                     case 7: // SALIR
                     
+                        validador = true ; // ------------- SALIDA PROVISIONAL ------------------
+                        
+                        break ;
+                        
                     default:
                         
                         System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
@@ -332,6 +344,9 @@ public class LanzadorPersonaje {
                         break;
                 }
             } while (!validador);
+            
+            System.out.println("------ MENSAJE DESEPDIDA -----------"); // --------------- TENGO QUE CAMBIAR ESTO
+            
         }
         catch (ExcepcionPersonaje e){
             System.out.println(e.getMessage());

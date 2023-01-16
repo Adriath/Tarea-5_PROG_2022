@@ -5,21 +5,21 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Clase dedicada a métodos que ayuden al desarrollo de la tarea.
- * Ejemplo: un método para leer por pantalla una cadena de caracteres.
+ * Clase dedicada a mÃ©todos que ayuden al desarrollo de la tarea.
+ * Ejemplo: un mÃ©todo para leer por pantalla una cadena de caracteres.
  * 
- * @author Adrián Arjona
+ * @author AdriÃ¡n Arjona
  * @version 1.1 Enero 2023
  */
 public class Utilidades {
     
-    /* Francisco Adrián Arjona Bravo
+    /* Francisco AdriÃ¡n Arjona Bravo
         UNIDAD 5: desarrollo de clases.
     */
     
      /**
-     * Método que pide al usuario una cadena de caracteres pudiendo personalizar 
-     * el mensaje de petición.
+     * MÃ©todo que pide al usuario una cadena de caracteres pudiendo personalizar 
+     * el mensaje de peticiÃ³n.
      * 
      * @param msg String. Mensaje con el que se pide la cadena al usuario.
      * @return String mensaje. Devuelve la cadena introducida por el usuario.
@@ -35,11 +35,11 @@ public class Utilidades {
     }
     
      /**
-     * Método que pide al usuario un número entero pudiendo personalizar el 
-     * mensaje de petición.
+     * MÃ©todo que pide al usuario un nÃºmero entero pudiendo personalizar el 
+     * mensaje de peticiÃ³n.
      * 
-     * @param msg String. Mensaje con el que se pide el número al usuario.
-     * @return int entero. Devuelve el número introducido por el usuario.
+     * @param msg String. Mensaje con el que se pide el nÃºmero al usuario.
+     * @return int entero. Devuelve el nÃºmero introducido por el usuario.
      */
     public static int leerEntero(String msg){
         
@@ -57,11 +57,11 @@ public class Utilidades {
             }
             catch (InputMismatchException e) {
                 
-                System.out.println("No has introducido un número entero.");
+                System.out.println("No has introducido un nÃºmero entero.");
             }
             catch (Exception e) {
                 
-                System.out.println("No has introducido un número entero.");
+                System.out.println("No has introducido un nÃºmero entero.");
             }
         } while (!validador);
 
@@ -71,11 +71,11 @@ public class Utilidades {
     
     
      /**
-     * Método que pide al usuario un número corto pudiendo personalizar el 
-     * mensaje de petición.
+     * MÃ©todo que pide al usuario un nÃºmero corto pudiendo personalizar el 
+     * mensaje de peticiÃ³n.
      * 
-     * @param msg String. Mensaje con el que se pide el número al usuario.
-     * @return byte. Devuelve el número introducido por el usuario.
+     * @param msg String. Mensaje con el que se pide el nÃºmero al usuario.
+     * @return byte. Devuelve el nï¿½mero introducido por el usuario.
      */
     public static byte leerByte(String msg){
         
@@ -93,11 +93,11 @@ public class Utilidades {
             }
             catch (InputMismatchException e) {
                 
-                System.out.println("No has introducido un número válido.");
+                System.out.println("No has introducido un nÃºmero vÃ¡lido.");
             }
             catch (Exception e) {
                 
-                System.out.println("No has introducido un número válido.");
+                System.out.println("No has introducido un nÃºmero vÃ¡lido.");
             }
         } while (!validador);
 

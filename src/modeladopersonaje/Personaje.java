@@ -6,18 +6,18 @@ import excepcionespersonaje.ExcepcionPersonaje;
 /**
  * Clase en la que se modela a los personajes que van a participar en la batalla.
  * 
- * @author Adri·n Arjona
+ * @author Adri√°n Arjona
  */
 public class Personaje {
     
-     /* Francisco Adri·n Arjona Bravo
+     /* Francisco Adri√°n Arjona Bravo
         UNIDAD 5: desarrollo de clases.
     */
     
     // ----------- ATRIBUTOS -----------------
     
-    /* Constantes que nos servir·n para controlar el n˙mero m·ximo de algunas 
-    caracterÌsticas de los personajes.
+    /* Constantes que nos servir√°n para controlar el n√∫mero m√°ximo de algunas 
+    caracter√≠sticas de los personajes.
     */
     
     public final static byte MAX_FUERZA = 100 ;
@@ -27,7 +27,7 @@ public class Personaje {
     public final static byte MIN_INTELIGENCIA = 0 ;
     public final static byte MIN_VIDA = 0 ;
     
-    // Variable est·tica que se ir· incrementando con la creaciÛn de cada personaje
+    // Variable est√°tica que se ir√° incrementando con la creaci√≥n de cada personaje
     
     public static short numeroPersonajes ;
     
@@ -53,13 +53,13 @@ public class Personaje {
     public Personaje(String nombre, byte inteligencia, byte fuerza) throws ExcepcionPersonaje{
         this.nombre = nombre ;
         this.vida = MAX_VIDA ;
-        this.setInteligencia (inteligencia) ; // Lanza excepciÛn si el valor no est· permitido.
-        this.setFuerza(fuerza) ; // Lanza excepciÛn si el valor no est· permitido.
+        this.setInteligencia (inteligencia) ; // Lanza excepci√≥n si el valor no est√° permitido.
+        this.setFuerza(fuerza) ; // Lanza excepci√≥n si el valor no est√° permitido.
         
         numeroPersonajes++ ;
     }
     
-    // --------------- M…TODOS -----------------
+    // --------------- METODOS -----------------
     
         // GETTERS & SETTERS
 
@@ -86,7 +86,7 @@ public class Personaje {
             }
             else
             {
-                throw new ExcepcionPersonaje("\nEl valor no est· permitido. Debe ser mayor que " + MIN_INTELIGENCIA + 
+                throw new ExcepcionPersonaje("\nEl valor no est√° permitido. Debe ser mayor que " + MIN_INTELIGENCIA + 
                         " y menor que " + MAX_INTELIGENCIA + "\n") ;
             }
         }
@@ -104,7 +104,7 @@ public class Personaje {
             }
             else
             {
-                throw new ExcepcionPersonaje("\nEl valor no est· permitido. Debe ser mayor que " + MIN_FUERZA + 
+                throw new ExcepcionPersonaje("\nEl valor no est√° permitido. Debe ser mayor que " + MIN_FUERZA + 
                         " y menor que " + MAX_FUERZA + "\n") ;
             }
         }
@@ -116,33 +116,33 @@ public class Personaje {
             return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", inteligencia=" + inteligencia + ", fuerza=" + fuerza + '}';
         }
  
-    // ---------------- M…TODOS ------------------
+    // ---------------- MÔøΩTODOS ------------------
         
     private void restarVida(){ // METODO PARA RESTAR VIDA
         
-        if (this.vida > MIN_VIDA) // Si la vida del personaje es mayor que la vida mÌnima...
+        if (this.vida > MIN_VIDA) // Si la vida del personaje es mayor que la vida m√≠nima...
         {
-            this.vida -= 20 ; // ...rÈstale 20 puntos de vida.
+            this.vida -= 20 ; // ...r√©stale 20 puntos de vida.
         }
-        else // Si la vida est· por debajo del mÌnimo...
+        else // Si la vida est√° por debajo del m√≠nimo...
         {
-            this.vida = MIN_VIDA ; // ...que no sobrepase el valor mÌnimo.
+            this.vida = MIN_VIDA ; // ...que no sobrepase el valor m√≠nimo.
         }
     }
     
-    private void restarVida(byte puntosVida){ // M…TODO PARA RESTAR VIDA CON PAR¡METROS
+    private void restarVida(byte puntosVida){ // M√âTODO PARA RESTAR VIDA CON PAR√ÅMETROS
         
-        if (this.vida > MIN_VIDA) // Si la vida del personaje es mayor que la vida mÌnima...
+        if (this.vida > MIN_VIDA) // Si la vida del personaje es mayor que la vida m√≠nima...
         {
-            this.vida -= puntosVida ; // ...rÈstale los puntos de vida que se hayan pasado por par·metros.
+            this.vida -= puntosVida ; // ...r√©stale los puntos de vida que se hayan pasado por par√°metros.
         }
-        else // Si la vida est· por debajo del mÌnmo...
+        else // Si la vida est√° por debajo del m√≠nimo...
         {
-            this.vida = MIN_VIDA ; // ...que no sobrepase el mÌnimo.
+            this.vida = MIN_VIDA ; // ...que no sobrepase el m√≠nimo.
         }
     }
     
-    public void valoresAleatorios(){ // M…TODO PARA DAR VALORES ALEATORIOS
+    public void valoresAleatorios(){ // M√âTODO PARA DAR VALORES ALEATORIOS
         
         byte fuerza ;
         byte inteligencia ;
@@ -174,19 +174,19 @@ public class Personaje {
         
         boolean muerto = false ;
         
-        if (this.vida == MIN_VIDA) { // Si la vida del personaje es igual a la vida mÌnima...
+        if (this.vida == MIN_VIDA) { // Si la vida del personaje es igual a la vida m√≠nima...
             
-            muerto = true ; // ...el personaje habr· muerto.
+            muerto = true ; // ...el personaje habr√° muerto.
         }
         
         return muerto ;
     }
     
         
-    public void batalla(Personaje p){ // M…TODO DE BATALLA
+    public void batalla(Personaje p){ // M√âTODO DE BATALLA
         
-        short poderPersonaje1 ; // Personaje invocador del mÈtodo.
-        short poderPersonaje2 ; // Personaje pasado por par·metros.
+        short poderPersonaje1 ; // Personaje invocador del m√©todo.
+        short poderPersonaje2 ; // Personaje pasado por par√°metros.
         
         
         poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ;
@@ -196,7 +196,7 @@ public class Personaje {
         {
             p.restarVida(); // ...quita 20 puntos de vida a P2.
         }
-        else if (poderPersonaje2 > poderPersonaje1) // Si ocurre al revÈs...
+        else if (poderPersonaje2 > poderPersonaje1) // Si ocurre al rev√©s...
         {
             this.restarVida(); // ...quita 20 puntos de vida a P1.
         }

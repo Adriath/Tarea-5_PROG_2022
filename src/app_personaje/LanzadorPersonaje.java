@@ -6,31 +6,31 @@ import modeladopersonaje.Personaje;
 import utilidades.Utilidades;
 
 /**
- * Clase que contiene el m�todo main. Contiene el men� de la aplicaci�n y todo 
+ * Clase que contiene el método main. Contiene el menú de la aplicación y todo 
  * lo requerido para librar batallas entre personajes.
  * 
- * @author Adri�n Arjona
+ * @author Adrián Arjona
  * @version 1.0 Enero 2023
  * @see https://imgur.com/a/4q3q6qV
  */
 public class LanzadorPersonaje {
     
-     /* Francisco Adri�n Arjona Bravo
+     /* Francisco Adrián Arjona Bravo
         UNIDAD 5: desarrollo de clases.
     */
     
     /* Hola Adrián. Tienes que hacer lo siguiente:
-     * - Debes mudar los métodos de aquí a la clase Personaje.
-     * - Cambiar el método batalla() para que en vez de void sea booleano
-     * - Añadir lo que falta del enunciado, como el empate en el final de la batalla
+     * - Debes mudar los m�İtodos de aqu�­ a la clase Personaje.
+     * - Cambiar el m�İtodo batalla() para que en vez de void sea booleano
+     * - A�ħadir lo que falta del enunciado, como el empate en el final de la batalla
      * o los mensajes que tienen que aparecer.
      * - Ponerlo todo bonito, modificar los mensajes para darle vistosidad.
      */
 
 
-    private static void mostrarMenu(){ // MUESTRA MEN�
+    private static void mostrarMenu(){ // MUESTRA MENïż½
         
-        System.out.println("\n-------- MEN� --------\n");
+        System.out.println("\n-------- MENÚ --------\n");
         
         System.out.println("1. Crear personaje 1");
         System.out.println("2. Crear personaje 2");
@@ -50,7 +50,7 @@ public class LanzadorPersonaje {
         boolean validador = false ;
         
         
-        nombre = Utilidades.leerString("?Cu�l es su nombre?") ; // Pregunta el nombre del personaje
+        nombre = Utilidades.leerString("¿Cuál es su nombre?") ; // Pregunta el nombre del personaje
         p.setNombre(nombre); // Lo guarda en el objeto Personaje
         
         do 
@@ -68,7 +68,7 @@ public class LanzadorPersonaje {
                 System.out.println(e.getMessage());
             }
             catch (Exception e){
-                System.out.println("Alg�n error ocurri�.");
+                System.out.println("Algún error ocurrió.");
             }
             
         } while (!validador);
@@ -91,7 +91,7 @@ public class LanzadorPersonaje {
                 System.out.println(e.getMessage());
             }
             catch (Exception e){
-                System.out.println("Alg�n error ocurri�.");
+                System.out.println("Algún error ocurrió.");
             }
             
             
@@ -111,22 +111,22 @@ public class LanzadorPersonaje {
         
         do 
         {
-            System.out.println("\n?Qu� atributo quieres modificar?\n");
+            System.out.println("\n¿Qué atributo quieres modificar?\n");
             
             System.out.println("1. NOMBRE");
             System.out.println("2. INTELIGENCIA");
             System.out.println("3. FUERZA");
             System.out.println("4. TODO");
-            System.out.println("5. DEJARLO COMO EST�");
+            System.out.println("5. DEJARLO COMO ESTÁ");
 
-            opcion = Utilidades.leerEntero("\nElige una opci�n:\n") ;
+            opcion = Utilidades.leerEntero("\nElige una opción:\n") ;
         
       
             switch (opcion)
             {
                 case 1: // MODIFICA NOMBRE
                     
-                    nombre = Utilidades.leerString("?C�mo quieres que se llame el personaje?") ;
+                    nombre = Utilidades.leerString("¿Cómo quieres que se llame el personaje?") ;
                     p.setNombre(nombre);
                     
                     System.out.println("\nEl nombre del personaje ha sido modificado.\n");
@@ -137,11 +137,11 @@ public class LanzadorPersonaje {
                 
                 case 2: // MODIFICA INTELIGENCIA
                     
-                    do // Repite la instrucci�n hasta que los valores sean v�lidos.
+                    do // Repite la instrucción hasta que los valores sean válidos.
                     {
                         try
                         {
-                            inteligencia = Utilidades.leerByte("?Cu�ntos puntos de inteligencia quieres que tenga el personaje?") ;
+                            inteligencia = Utilidades.leerByte("¿Cuántos puntos de inteligencia quieres que tenga el personaje?") ;
                             p.setInteligencia(inteligencia);
                             
                             validador = true ;
@@ -150,7 +150,7 @@ public class LanzadorPersonaje {
                             System.out.println(e.getMessage());
                         }
                         catch (Exception e){
-                            System.out.println("Algo ocurri�.");
+                            System.out.println("Algo ocurrió.");
                         }
                         
                     } while (!validador);
@@ -161,11 +161,11 @@ public class LanzadorPersonaje {
                     
                  case 3: // MODIFICA FUERZA
                     
-                    do // Repite la instrucci�n hasta que los valores sean v�lidos.
+                    do // Repite la instrucción hasta que los valores sean válidos.
                     {
                         try
                         {
-                            fuerza = Utilidades.leerByte("?Cu�ntos puntos de fuerza quieres que tenga el personaje?") ;
+                            fuerza = Utilidades.leerByte("¿Cuántos puntos de fuerza quieres que tenga el personaje?") ;
                             p.setFuerza(fuerza);
                             
                             validador = true ;
@@ -174,7 +174,7 @@ public class LanzadorPersonaje {
                             System.out.println(e.getMessage());
                         }
                         catch (Exception e){
-                            System.out.println("Algo ocurri�.");
+                            System.out.println("Algo ocurrió.");
                         }
                         
                     } while (!validador);
@@ -185,7 +185,7 @@ public class LanzadorPersonaje {
                     
                  case 4: // MODIFICA TODO
                      
-                     crearPersonaje(p) ; // Este m�todo har� que se modifiquen todos los par�metros.
+                     crearPersonaje(p) ; // Este método hará que se modifiquen todos los parámetros.
                      
                      System.out.println("\nEl personaje ha sido modificado.\n");
                      
@@ -193,17 +193,17 @@ public class LanzadorPersonaje {
                      
                      break;
                      
-                 case 5: // NO REALIZA NING�N CAMBIO
+                 case 5: // NO REALIZA NINGÚN CAMBIO
                      
-                     System.out.println("\nNo se ha realizado ning�n cambio. Volviendo al men�.\n");
+                     System.out.println("\nNo se ha realizado ningún cambio. Volviendo al menú.\n");
                      
                      validador = true ;
                      
                      break;
                      
-                 default: // SI SE ESCOGE UNA OPCI�N NO V�LIDA
+                 default: // SI SE ESCOGE UNA OPCIÓN NO VÁLIDA
                      
-                     System.out.println("\nDebes escoger una opci�n entre 1 y 5.\n");
+                     System.out.println("\nDebes escoger una opción entre 1 y 5.\n");
                      
                      break;
                      
@@ -218,7 +218,7 @@ public class LanzadorPersonaje {
         System.out.println(p2.toString());
     }
     
-    public static void main(String[] args) { // M�TODO MAIN
+    public static void main(String[] args) { // -------------------- MÉTODO MAIN -----------------------------
 
         try
         {
@@ -234,8 +234,8 @@ public class LanzadorPersonaje {
             Personaje personaje1 = new Personaje(nombre, inteligencia, fuerza) ;
             Personaje personaje2 = new Personaje(nombre, inteligencia, fuerza) ;
             
-            Utilidades.leerString("Bienvenido al sistema, introduce la contrsae�o:"); // --------- SISTEMA PROVISIONAL DE CONTRASE�A -------------
-                    System.out.println("Contrase�a correcta.");
+            Utilidades.leerString("Bienvenido al sistema, introduce la contraseña:"); // --------- SISTEMA PROVISIONAL DE CONTRASEïż½A -------------
+                    System.out.println("Contraseña correcta.");
             System.out.println("MENSAJE DE BIENVENIDA"); // ---------------------------- EDITAR ---------------------------
             
             do 
@@ -243,13 +243,13 @@ public class LanzadorPersonaje {
             
                 mostrarMenu();
             
-                opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCI�N:\n") ;
+                opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
             
                 switch (opcion)
                 {
                     case 1: // CREAR PERSONAJE 1
                     
-                        if (!personaje1Creado) // Si el personaje no existe proceder� a su creaci�n.
+                        if (!personaje1Creado) // Si el personaje no existe procederá a su creación.
                         {
                             System.out.println("\n-- Vas a crear el personaje 1 --\n");
 
@@ -257,7 +257,7 @@ public class LanzadorPersonaje {
                             
                             personaje1Creado = true ;
                         }
-                        else // Si ya existe avisar� con un mensaje y volver� al men�.
+                        else // Si ya existe avisará con un mensaje y volverá al menú.
                         {
                             System.out.println("\nEl personaje 1 ya ha sido creado.\n");
                         }
@@ -266,7 +266,7 @@ public class LanzadorPersonaje {
                     
                     case 2: // CREAR PERSONAJE 2
                     
-                        if (!personaje2Creado) // Si el personaje no existe proceder� a su creaci�n.
+                        if (!personaje2Creado) // Si el personaje no existe prcederá a su creación.
                         {
                             System.out.println("\n-- Vas a crear el personaje 2 --\n");
 
@@ -274,7 +274,7 @@ public class LanzadorPersonaje {
 
                             personaje2Creado = true ;
                         }
-                        else // Si ya existe avisar� con un mensaje y volver� al men�.
+                        else // Si ya existe avisará con un mensaje y volverá al menú.
                         {
                             System.out.println("\nEl personaje 2 ya ha sido creado.\n");
                         }
@@ -283,7 +283,7 @@ public class LanzadorPersonaje {
                     
                     case 3: // BATALLA
                         
-                        if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados proceder� a la batalla.
+                        if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
                         {
                             personaje1.batalla(personaje2);
                             
@@ -303,7 +303,7 @@ public class LanzadorPersonaje {
                             personaje1.valoresAleatorios();
                             personaje2.valoresAleatorios();
                         }
-                        else // Si los personajes no est�n creados avisar� con un mensaje y saldr� al men�.
+                        else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
                         {
                             System.out.println("Debes crear primero los personajes.");
                         }
@@ -312,11 +312,11 @@ public class LanzadorPersonaje {
                     
                     case 4: // MOSTRAR PERSONAJES
                     
-                        if (personaje1Creado & personaje2Creado) // Si los peronsajes est�n creados los muestra.
+                        if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
                         {
                             muestraPersonajes(personaje1, personaje2);
                         }
-                        else // Si los personajes no est�n creados avisar� con un mensaje y no los mostrar�.
+                        else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
                         {
                             System.out.println("\nTienes que crear primero los personajes.\n");
                         }
@@ -325,30 +325,30 @@ public class LanzadorPersonaje {
                     
                     case 5: // MODIFICAR PERSONAJE 1
                         
-                        if (personaje1Creado) // Si el personaje est� creado lo modificar�.
+                        if (personaje1Creado) // Si el personaje está creado lo modificará.
                         {
-                            System.out.println("\n-- EST�S MODIFICANDO EL PERSONAJE 1 --\n");
+                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
                             
                             modificaPersonaje(personaje1);
                         }
-                        else // Si no est� creado avisar� y saldr� al men�.
+                        else // Si no está creado avisará y saldrá al menú.
                         {
-                            System.out.println("\nEl personaje 1 no est� creado. Debes crearlo primero.\n");
+                            System.out.println("\nEl personaje e1 no está creado. Debes crearlo primero.\n");
                         }
                         
                         break;
                         
                     case 6: // MODIFICAR PERSONAJE 2
                         
-                        if (personaje1Creado) // Si el personaje est� creado lo modificar�.
+                        if (personaje1Creado) // Si el personaje está creado lo modificará.
                         {
-                            System.out.println("\n-- EST�S MODIFICANDO EL PERSONAJE 2 --\n");
+                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
                             
                             modificaPersonaje(personaje2);
                         }
-                        else // Si no est� creado avisar� y saldr� al men�.
+                        else // Si no está creado avisará y saldrá al menú.
                         {
-                            System.out.println("\nEl personaje 2 no est� creado. Debes crearlo primero.\n");
+                            System.out.println("\nEl personaje 2 no está creado. Debes crearlo primero.\n");
                         }
                         
                         break;
@@ -361,13 +361,13 @@ public class LanzadorPersonaje {
                         
                     default:
                         
-                        System.out.println("\nTienes que escoger una opci�n entre 1 y 7.\n");
+                        System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
                         
                         break;
                 }
             } while (!validador);
             
-            System.out.println("------ MENSAJE DESEPDIDA -----------"); // --------------- TENGO QUE CAMBIAR ESTO
+            System.out.println("------ MENSAJE DESPEDIDA -----------"); // --------------- TENGO QUE CAMBIAR ESTO
             
         }
         catch (ExcepcionPersonaje e){
@@ -377,4 +377,4 @@ public class LanzadorPersonaje {
             System.out.println(e.getMessage());
         }
     }
-} // Esto es una prueba de sincronización con la tablet. Si aparece es que todo bien.
+}

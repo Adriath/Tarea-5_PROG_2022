@@ -2,13 +2,13 @@
 package excepcionespersonaje;
 
 /**
- * Clase de contiene la/s excepción/es para la creación de los personajes.
+ * Clase de contiene la/s excepciÃ³n/es para la creaciÃ³n de los personajes.
  * 
- * @author Adrián Arjona
+ * @author AdriÃ¡n Arjona
  */
 public class ExcepcionPersonaje extends Exception{
     
-     /* Francisco Adrián Arjona Bravo
+     /* Francisco AdriÃ¡n Arjona Bravo
         UNIDAD 5: desarrollo de clases.
     */
     

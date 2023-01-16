@@ -2,6 +2,7 @@
 package modeladopersonaje;
 
 import excepcionespersonaje.ExcepcionPersonaje;
+import utilidades.Utilidades;
 
 /**
  * Clase en la que se modela a los personajes que van a participar en la batalla.
@@ -116,7 +117,68 @@ public class Personaje {
             return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", inteligencia=" + inteligencia + ", fuerza=" + fuerza + '}';
         }
  
-    // ---------------- M�TODOS ------------------
+    // ---------------- MÉTODOS ------------------
+
+    
+    public static void crearPersonaje(Personaje p){ // CREA PRESONAJE
+        
+        String nombre ;
+        byte inteligencia ;
+        byte fuerza ;
+        
+        boolean validador = false ;
+        boolean creado = false ;
+        
+        
+        nombre = Utilidades.leerString("¿Cuál es su nombre?") ; // Pregunta el nombre del personaje
+        p.setNombre(nombre); // Lo guarda en el objeto Personaje
+        
+        do 
+        {
+            try
+            {
+                inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA +  // Pregunta por la inteligencia del personaje
+                " y " + Personaje.MAX_INTELIGENCIA + "):") ;
+            
+                p.setInteligencia(inteligencia); // Lo guarda en el  objeto Personaje
+                
+                validador = true ;
+            }
+            catch (ExcepcionPersonaje e){
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e){
+                System.out.println("Algún error ocurrió.");
+            }
+            
+        } while (!validador);
+        
+        validador = false ; // Reseteamos este valor para que funcione en el siguiente bucle.
+            
+        
+        do 
+        {
+            try
+            {
+                fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + // Pregunta por la fuerza del personaje
+                " y " + Personaje.MAX_FUERZA + "):") ;
+                
+                p.setFuerza(fuerza); // Lo guarda en el objeto Personaje
+                
+                validador = true ;
+            }
+            catch (ExcepcionPersonaje e){
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e){
+                System.out.println("Algún error ocurrió.");
+            }
+            
+            
+        } while (!validador);
+        
+    }
+        
         
     private void restarVida(){ // METODO PARA RESTAR VIDA
         

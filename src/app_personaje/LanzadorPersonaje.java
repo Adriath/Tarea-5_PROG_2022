@@ -21,14 +21,14 @@ public class LanzadorPersonaje {
     
     /* Hola Adrián. Tienes que hacer lo siguiente:
      * - Debes mudar los m�İtodos de aqu�­ a la clase Personaje.
-     * - Cambiar el m�İtodo batalla() para que en vez de void sea booleano
-     * - A�ħadir lo que falta del enunciado, como el empate en el final de la batalla
+     * - Cambiar el método batalla() para que en vez de void sea booleano
+     * - Aħadir lo que falta del enunciado, como el empate en el final de la batalla
      * o los mensajes que tienen que aparecer.
      * - Ponerlo todo bonito, modificar los mensajes para darle vistosidad.
      */
 
 
-    private static void mostrarMenu(){ // MUESTRA MENïż½
+    private static void mostrarMenu(){ // MUESTRA MENÚ
         
         System.out.println("\n-------- MENÚ --------\n");
         
@@ -39,64 +39,6 @@ public class LanzadorPersonaje {
         System.out.println("5. Modificar personaje 1");
         System.out.println("6. Modificar personaje 2");
         System.out.println("7. Salir");
-    }
-    
-    private static void crearPersonaje(Personaje p){ // CREA PRESONAJE
-        
-        String nombre ;
-        byte inteligencia ;
-        byte fuerza ;
-        
-        boolean validador = false ;
-        
-        
-        nombre = Utilidades.leerString("¿Cuál es su nombre?") ; // Pregunta el nombre del personaje
-        p.setNombre(nombre); // Lo guarda en el objeto Personaje
-        
-        do 
-        {
-            try
-            {
-                inteligencia = Utilidades.leerByte("Define su inteligencia (puntos entre " + Personaje.MIN_INTELIGENCIA +  // Pregunta por la inteligencia del personaje
-                " y " + Personaje.MAX_INTELIGENCIA + "):") ;
-            
-                p.setInteligencia(inteligencia); // Lo guarda en el  objeto Personaje
-                
-                validador = true ;
-            }
-            catch (ExcepcionPersonaje e){
-                System.out.println(e.getMessage());
-            }
-            catch (Exception e){
-                System.out.println("Algún error ocurrió.");
-            }
-            
-        } while (!validador);
-        
-        validador = false ; // Reseteamos este valor para que funcione en el siguiente bucle.
-            
-        
-        do 
-        {
-            try
-            {
-                fuerza = Utilidades.leerByte("Define ahora su fuerza (puntos entre " + Personaje.MIN_FUERZA + // Pregunta por la fuerza del personaje
-                " y " + Personaje.MAX_FUERZA + "):") ;
-                
-                p.setFuerza(fuerza); // Lo guarda en el objeto Personaje
-                
-                validador = true ;
-            }
-            catch (ExcepcionPersonaje e){
-                System.out.println(e.getMessage());
-            }
-            catch (Exception e){
-                System.out.println("Algún error ocurrió.");
-            }
-            
-            
-        } while (!validador);
-        
     }
     
     
@@ -185,7 +127,7 @@ public class LanzadorPersonaje {
                     
                  case 4: // MODIFICA TODO
                      
-                     crearPersonaje(p) ; // Este método hará que se modifiquen todos los parámetros.
+                     Personaje.crearPersonaje(p) ; // Este método hará que se modifiquen todos los parámetros.
                      
                      System.out.println("\nEl personaje ha sido modificado.\n");
                      
@@ -253,7 +195,7 @@ public class LanzadorPersonaje {
                         {
                             System.out.println("\n-- Vas a crear el personaje 1 --\n");
 
-                            crearPersonaje(personaje1) ;
+                            Personaje.crearPersonaje(personaje1) ;
                             
                             personaje1Creado = true ;
                         }
@@ -270,7 +212,7 @@ public class LanzadorPersonaje {
                         {
                             System.out.println("\n-- Vas a crear el personaje 2 --\n");
 
-                            crearPersonaje(personaje2) ;
+                            Personaje.crearPersonaje(personaje2) ;
 
                             personaje2Creado = true ;
                         }
@@ -340,7 +282,7 @@ public class LanzadorPersonaje {
                         
                     case 6: // MODIFICAR PERSONAJE 2
                         
-                        if (personaje1Creado) // Si el personaje está creado lo modificará.
+                        if (personaje2Creado) // Si el personaje está creado lo modificará.
                         {
                             System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
                             

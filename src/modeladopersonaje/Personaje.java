@@ -374,6 +374,8 @@ public class Personaje {
         poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ; // Fuerza más inteligencia del personaje 1.
         poderPersonaje2 = (short)(p.fuerza + p.inteligencia) ; // Fuerza más inteligencia del personaje 2.
 
+        muestraPersonajes(this, p);
+        
         if (poderPersonaje1 > poderPersonaje2) // Si el P1 supera al P2...
         {
             p.restarVida(); // ...quita 20 puntos de vida a P2.
@@ -408,9 +410,17 @@ public class Personaje {
             
             finalizaBatalla = true ;
         }
+        else
+        {
+            this.valoresAleatorios();
+            p.valoresAleatorios();
+        
+            System.out.println("\nTeniendo en cuenta las condiciones de la batalla se han actualizado los parámetros de los combatientes.\n");
+        }
 
-        this.valoresAleatorios();
-        p.valoresAleatorios();
+        
+        System.out.println("\nDESPUÉS DE LA BATALLA\n");
+        muestraPersonajes(this, p);
     
         return finalizaBatalla ;        
     }

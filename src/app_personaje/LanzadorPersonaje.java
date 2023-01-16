@@ -8,6 +8,8 @@ import utilidades.Utilidades;
 /**
  * Clase que contiene el método main. Contiene el menú de la aplicación y todo 
  * lo requerido para librar batallas entre personajes.
+ * La temática está basada en una veñta del cómic The Boys. En esta misma 
+ * descripción está el enlace para ver la imagen.
  * 
  * @author Adrián Arjona
  * @version 1.0 Enero 2023
@@ -18,17 +20,12 @@ public class LanzadorPersonaje {
      /* Francisco Adrián Arjona Bravo
         UNIDAD 5: desarrollo de clases.
     */
-    
-    /* Hola Adrián. Tienes que hacer lo siguiente:
-     * - Debes mudar los métodos de aquí­ a la clase Personaje.
-     * - Cambiar el método batalla() para que en vez de void sea booleano
-     * - Aħadir lo que falta del enunciado, como el empate en el final de la batalla
-     * o los mensajes que tienen que aparecer.
-     * - Ponerlo todo bonito, modificar los mensajes para darle vistosidad.
+
+
+    /**
+     * Método estático que muestra el menú para la aplicación de combates.
      */
-
-
-    private static void mostrarMenu(){ // MUESTRA MENÚ
+    private static void mostrarMenu(){
         
         System.out.println("\n-------- MENÚ --------\n");
         
@@ -42,145 +39,169 @@ public class LanzadorPersonaje {
     }
     
     
-    public static void main(String[] args) { // -------------------- MÉTODO MAIN -----------------------------
+    // ------------------------------------------------------------
+    // -------------------- MÉTODO MAIN ---------------------------
+    // ------------------------------------------------------------
+    
+    
+    public static void main(String[] args) {
 
         try
         {
+            // ---------- DECLARACIÓN DE ATRIBUTOS -------------
+            
             String nombre = "";
             byte inteligencia = Personaje.MIN_INTELIGENCIA ;
             byte fuerza = Personaje.MAX_FUERZA ;
 
-            int opcion ;
-            boolean validador = false ;
-            boolean personaje1Creado = false ;
-            boolean personaje2Creado = false ;
+            int opcion ; // Opción del menú
+            int contadorBatalla = 1 ; // Cuenta el número de batallas que se libran
+            
+            boolean validador = false ; // Para salir del bucle
+            boolean personaje1Creado = false ; // Indica si el personaje 1 ha sido creado
+            boolean personaje2Creado = false ; // Indica si el personaje 2 ha sido creado
 
+            // ------------ CONSTRUCCIÓN OBJETOS ---------------
+            
             Personaje personaje1 = new Personaje(nombre, inteligencia, fuerza) ;
             Personaje personaje2 = new Personaje(nombre, inteligencia, fuerza) ;
             
-            Utilidades.leerString("Bienvenido al sistema, introduce la contraseña:"); // --------- SISTEMA PROVISIONAL DE CONTRASEïż½A -------------
+            // --------------- MENSAJE BIENVENIDA --------------------
+            
+            Utilidades.leerString("Bienvenido al sistema, introduce la contraseña:"); // --------- SISTEMA PROVISIONAL DE CONTRASEÑA -------------
                     System.out.println("Contraseña correcta.");
             System.out.println("MENSAJE DE BIENVENIDA"); // ---------------------------- EDITAR ---------------------------
             
-            do 
+            // ------------ OPERACIONES ----------------
+            
+            do // Sirve para mantenernos en el menú
             {
-                do 
+                mostrarMenu(); // Muestra el menú al usuario/a
+
+                opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ; // Pide la opción al usuario/a
+
+                switch (opcion)
                 {
-                    mostrarMenu();
-            
-                    opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
-            
-                    switch (opcion)
-                    {
-                        case 1: // CREAR PERSONAJE 1
-                    
-                            if (!personaje1Creado) // Si el personaje no existe procederá a su creación.
-                            {
-                                System.out.println("\n-- Vas a crear el personaje 1 --\n");
+                    case 1: // CREAR PERSONAJE 1
 
-                                Personaje.crearPersonaje(personaje1) ;
+                        if (!personaje1Creado) // Si el personaje no existe procederá a su creación.
+                        {
+                            System.out.println("\n-- Vas a crear el personaje 1 --\n");
+
+                            Personaje.crearPersonaje(personaje1) ;
+
+                            personaje1Creado = true ;
+                        }
+                        else // Si ya existe avisará con un mensaje y volverá al menú.
+                        {
+                            System.out.println("\nEl personaje 1 ya ha sido creado.\n");
+                        }
+
+                        break;
+
+                    case 2: // CREAR PERSONAJE 2
+
+                        if (!personaje2Creado) // Si el personaje no existe procederá a su creación.
+                        {
+                            System.out.println("\n-- Vas a crear el personaje 2 --\n");
+
+                            Personaje.crearPersonaje(personaje2) ;
+
+                            personaje2Creado = true ;
+                        }
+                        else // Si ya existe avisará con un mensaje y volverá al menú.
+                        {
+                            System.out.println("\nEl personaje 2 ya ha sido creado.\n");
+                        }
+
+                        break;
+
+                    case 3: // BATALLA
+
+                        if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
+                        {
+                            System.out.println("\nBATALLA " + contadorBatalla + "\n"); // Mensaje que indica el número de batalla que se está librando.
                             
-                                personaje1Creado = true ;
-                            }
-                            else // Si ya existe avisará con un mensaje y volverá al menú.
-                            {
-                                System.out.println("\nEl personaje 1 ya ha sido creado.\n");
-                            }
+                            validador = personaje1.batalla(personaje2);
+                            
+                            contadorBatalla++ ;
+                        }
+                        else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
+                        {
+                            System.out.println("Debes crear primero los personajes.");
+                        }
 
-                            break;
-                    
-                        case 2: // CREAR PERSONAJE 2
-                    
-                            if (!personaje2Creado) // Si el personaje no existe prcederá a su creación.
-                            {
-                                System.out.println("\n-- Vas a crear el personaje 2 --\n");
+                        break;
 
-                                Personaje.crearPersonaje(personaje2) ;
+                    case 4: // MOSTRAR PERSONAJES
 
-                                personaje2Creado = true ;
-                            }
-                            else // Si ya existe avisará con un mensaje y volverá al menú.
-                            {
-                                System.out.println("\nEl personaje 2 ya ha sido creado.\n");
-                            }
+                        if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
+                        {
+                            Personaje.muestraPersonajes(personaje1, personaje2);
+                        }
+                        else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
+                        {
+                            System.out.println("\nTienes que crear primero los personajes.\n");
+                        }
 
-                            break;
-                    
-                        case 3: // BATALLA
-                        
-                            if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
-                            {
-                                validador = personaje1.batalla(personaje2);
-                            }
-                            else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
-                            {
-                                System.out.println("Debes crear primero los personajes.");
-                            }
+                        break ;
 
-                            break;
-                    
-                        case 4: // MOSTRAR PERSONAJES
+                    case 5: // MODIFICAR PERSONAJE 1
 
-                            if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
-                            {
-                                Personaje.muestraPersonajes(personaje1, personaje2);
-                            }
-                            else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
-                            {
-                                System.out.println("\nTienes que crear primero los personajes.\n");
-                            }
+                        if (personaje1Creado) // Si el personaje está creado lo modificará.
+                        {
+                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
 
-                            break ;
-                    
-                        case 5: // MODIFICAR PERSONAJE 1
+                            Personaje.modificaPersonaje(personaje1);
+                        }
+                        else // Si no está creado avisará y saldrá al menú.
+                        {
+                            System.out.println("\nEl personaje e1 no está creado. Debes crearlo primero.\n");
+                        }
 
-                            if (personaje1Creado) // Si el personaje está creado lo modificará.
-                            {
-                                System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
+                        break;
 
-                                Personaje.modificaPersonaje(personaje1);
-                            }
-                            else // Si no está creado avisará y saldrá al menú.
-                            {
-                                System.out.println("\nEl personaje e1 no está creado. Debes crearlo primero.\n");
-                            }
+                    case 6: // MODIFICAR PERSONAJE 2
 
-                            break;
-                        
-                        case 6: // MODIFICAR PERSONAJE 2
+                        if (personaje2Creado) // Si el personaje está creado lo modificará.
+                        {
+                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
 
-                            if (personaje2Creado) // Si el personaje está creado lo modificará.
-                            {
-                                System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
+                            Personaje.modificaPersonaje(personaje2);
+                        }
+                        else // Si no está creado avisará y saldrá al menú.
+                        {
+                            System.out.println("\nEl personaje 2 no está creado. Debes crearlo primero.\n");
+                        }
 
-                                Personaje.modificaPersonaje(personaje2);
-                            }
-                            else // Si no está creado avisará y saldrá al menú.
-                            {
-                                System.out.println("\nEl personaje 2 no está creado. Debes crearlo primero.\n");
-                            }
+                        break;
 
-                            break;
-                        
-                        case 7: // SALIR
+                    case 7: // SALIR
 
-                            validador = true ; // ------------- SALIDA PROVISIONAL ------------------
+                        validador = !(Utilidades.secuenciaSalida()) ; // El/la usuario/a debe seleccionar "S" o "s" para salir del programa.
 
-                            break ;
+                        break ;
 
-                        default:
+                    default: // SI NO SE ELIGE UNA OPCIÓN VÁLIDA
 
-                            System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
+                        System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
 
-                            break;
-                    }
-                    
-                } while (!validador);
-                
-                validador = Utilidades.secuenciaSalida() ;
-                
-            } while (validador);
+                        break;
+                }
+
+            } while (!validador);
             
+            // ---------------- MENSAJE DESPEDIDA -----------------
+            
+            if (personaje1Creado && personaje2Creado) 
+            {
+                System.out.println("\nSe han creado " + Personaje.numeroPersonajes + " combatientes.\n");
+            }
+            else if (personaje1Creado | personaje2Creado) 
+            {
+                System.out.println("\nSe ha creado 1 combatiente.\n");
+            }
+                        
             System.out.println("------ MENSAJE DESPEDIDA -----------"); // --------------- TENGO QUE CAMBIAR ESTO
             
         }

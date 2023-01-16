@@ -177,6 +177,8 @@ public class LanzadorPersonaje {
                     
                 } while (!validador);
                 
+                validador = Utilidades.secuenciaSalida() ;
+                
             } while (validador);
             
             System.out.println("------ MENSAJE DESPEDIDA -----------"); // --------------- TENGO QUE CAMBIAR ESTO

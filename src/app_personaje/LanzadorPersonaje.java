@@ -64,116 +64,120 @@ public class LanzadorPersonaje {
             
             do 
             {
-            
-                mostrarMenu();
-            
-                opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
-            
-                switch (opcion)
+                do 
                 {
-                    case 1: // CREAR PERSONAJE 1
+                    mostrarMenu();
+            
+                    opcion = Utilidades.leerEntero("\nSELECCIONA UNA OPCIÓN:\n") ;
+            
+                    switch (opcion)
+                    {
+                        case 1: // CREAR PERSONAJE 1
                     
-                        if (!personaje1Creado) // Si el personaje no existe procederá a su creación.
-                        {
-                            System.out.println("\n-- Vas a crear el personaje 1 --\n");
+                            if (!personaje1Creado) // Si el personaje no existe procederá a su creación.
+                            {
+                                System.out.println("\n-- Vas a crear el personaje 1 --\n");
 
-                            Personaje.crearPersonaje(personaje1) ;
+                                Personaje.crearPersonaje(personaje1) ;
                             
-                            personaje1Creado = true ;
-                        }
-                        else // Si ya existe avisará con un mensaje y volverá al menú.
-                        {
-                            System.out.println("\nEl personaje 1 ya ha sido creado.\n");
-                        }
+                                personaje1Creado = true ;
+                            }
+                            else // Si ya existe avisará con un mensaje y volverá al menú.
+                            {
+                                System.out.println("\nEl personaje 1 ya ha sido creado.\n");
+                            }
 
-                        break;
+                            break;
                     
-                    case 2: // CREAR PERSONAJE 2
+                        case 2: // CREAR PERSONAJE 2
                     
-                        if (!personaje2Creado) // Si el personaje no existe prcederá a su creación.
-                        {
-                            System.out.println("\n-- Vas a crear el personaje 2 --\n");
+                            if (!personaje2Creado) // Si el personaje no existe prcederá a su creación.
+                            {
+                                System.out.println("\n-- Vas a crear el personaje 2 --\n");
 
-                            Personaje.crearPersonaje(personaje2) ;
+                                Personaje.crearPersonaje(personaje2) ;
 
-                            personaje2Creado = true ;
-                        }
-                        else // Si ya existe avisará con un mensaje y volverá al menú.
-                        {
-                            System.out.println("\nEl personaje 2 ya ha sido creado.\n");
-                        }
+                                personaje2Creado = true ;
+                            }
+                            else // Si ya existe avisará con un mensaje y volverá al menú.
+                            {
+                                System.out.println("\nEl personaje 2 ya ha sido creado.\n");
+                            }
 
-                        break;
+                            break;
                     
-                    case 3: // BATALLA
+                        case 3: // BATALLA
                         
-                        if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
-                        {
-                            validador = personaje1.batalla(personaje2);
-                        }
-                        else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
-                        {
-                            System.out.println("Debes crear primero los personajes.");
-                        }
-                        
-                        break;
+                            if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
+                            {
+                                validador = personaje1.batalla(personaje2);
+                            }
+                            else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
+                            {
+                                System.out.println("Debes crear primero los personajes.");
+                            }
+
+                            break;
                     
-                    case 4: // MOSTRAR PERSONAJES
+                        case 4: // MOSTRAR PERSONAJES
+
+                            if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
+                            {
+                                Personaje.muestraPersonajes(personaje1, personaje2);
+                            }
+                            else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
+                            {
+                                System.out.println("\nTienes que crear primero los personajes.\n");
+                            }
+
+                            break ;
                     
-                        if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
-                        {
-                            Personaje.muestraPersonajes(personaje1, personaje2);
-                        }
-                        else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
-                        {
-                            System.out.println("\nTienes que crear primero los personajes.\n");
-                        }
+                        case 5: // MODIFICAR PERSONAJE 1
+
+                            if (personaje1Creado) // Si el personaje está creado lo modificará.
+                            {
+                                System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
+
+                                Personaje.modificaPersonaje(personaje1);
+                            }
+                            else // Si no está creado avisará y saldrá al menú.
+                            {
+                                System.out.println("\nEl personaje e1 no está creado. Debes crearlo primero.\n");
+                            }
+
+                            break;
                         
-                        break ;
+                        case 6: // MODIFICAR PERSONAJE 2
+
+                            if (personaje2Creado) // Si el personaje está creado lo modificará.
+                            {
+                                System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
+
+                                Personaje.modificaPersonaje(personaje2);
+                            }
+                            else // Si no está creado avisará y saldrá al menú.
+                            {
+                                System.out.println("\nEl personaje 2 no está creado. Debes crearlo primero.\n");
+                            }
+
+                            break;
+                        
+                        case 7: // SALIR
+
+                            validador = true ; // ------------- SALIDA PROVISIONAL ------------------
+
+                            break ;
+
+                        default:
+
+                            System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
+
+                            break;
+                    }
                     
-                    case 5: // MODIFICAR PERSONAJE 1
-                        
-                        if (personaje1Creado) // Si el personaje está creado lo modificará.
-                        {
-                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
-                            
-                            Personaje.modificaPersonaje(personaje1);
-                        }
-                        else // Si no está creado avisará y saldrá al menú.
-                        {
-                            System.out.println("\nEl personaje e1 no está creado. Debes crearlo primero.\n");
-                        }
-                        
-                        break;
-                        
-                    case 6: // MODIFICAR PERSONAJE 2
-                        
-                        if (personaje2Creado) // Si el personaje está creado lo modificará.
-                        {
-                            System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
-                            
-                            Personaje.modificaPersonaje(personaje2);
-                        }
-                        else // Si no está creado avisará y saldrá al menú.
-                        {
-                            System.out.println("\nEl personaje 2 no está creado. Debes crearlo primero.\n");
-                        }
-                        
-                        break;
-                        
-                    case 7: // SALIR
-                    
-                        validador = true ; // ------------- SALIDA PROVISIONAL ------------------
-                        
-                        break ;
-                        
-                    default:
-                        
-                        System.out.println("\nTienes que escoger una opción entre 1 y 7.\n");
-                        
-                        break;
-                }
-            } while (!validador);
+                } while (!validador);
+                
+            } while (validador);
             
             System.out.println("------ MENSAJE DESPEDIDA -----------"); // --------------- TENGO QUE CAMBIAR ESTO
             

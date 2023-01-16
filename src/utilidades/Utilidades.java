@@ -1,6 +1,7 @@
 
 package utilidades;
 
+import excepciones.ExcepcionDecisionUsuario;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -104,4 +105,87 @@ public class Utilidades {
      
         return numero ;
     }
+    
+    /**
+     * Método que valida la respuesta del usuario respecto a si continuar la 
+     * ejecución.
+     * 
+     * @param msj String. Mensaje introducido por el usuario.
+     * @return boolean valido. Devuelve si es válida la respuesta (true) o no (false).
+     */
+    public static boolean compruebaDecisionUsuario(String msj)throws ExcepcionDecisionUsuario{
+        String si = "s" ;
+        String no = "n" ;
+        boolean valido = false ;
+        
+        if (msj.equalsIgnoreCase(si) ^ msj.equalsIgnoreCase(no)) // Si el mensaje introducido es igual a "s" o "n" será válido...
+        {
+           valido = true ;
+        }
+        else // ...de lo contrario no y saltará la excepción.
+        {
+            throw new ExcepcionDecisionUsuario("Tienes que decir sí \"s/S\" o no \"n/N\".") ;
+        }
+        
+        return valido ;
+    }
+    
+    
+    
+    /**
+     * Método que extraerá la decisión del usuario, previamente validada con el método compruebaDecisionUsuario().
+     * 
+     * @param decision
+     * @see compruebaDecisionUsuario()
+     * @return 
+     */
+    public static boolean distingueEntreSiYNo(String decision){
+        
+        boolean respuesta = false ;
+        
+        if (decision.equalsIgnoreCase("s")) // Si la decisión del usuario/a es "s/S"...
+        {
+            respuesta = false ; // ...respuesta será false.
+        }
+        else if (decision.equalsIgnoreCase("n")) // Si la decisión del usuario/a es "n/N"...
+        {
+            respuesta = true ; // ...la respuesta será true.
+        }
+        
+        return respuesta ;
+    }
+    
+      /**
+     * Método que unifica los métodos compruebaDecisionUsuario() y distingueEntreSiYNo().
+     * Preguntará al usuario/a si quieres salir. Si la respuesta es válida la almacenará y evaluará.
+     * 
+     * @return boolean validador. Devuelve la decision del usuario/a según seá sí o no.
+     * @see compruebaDecisionUsuario()
+     * @see distingueEntreSiYNo()
+     */
+    public static boolean secuenciaSalida(){
+        
+        String decision ;
+        boolean validador = false ;
+        
+        do // Ejecuta hasta que la decisión del usuario/a sea válida.
+            {                
+                decision = Utilidades.leerString("\n¿Quieres salir del programa? (s/n)\n") ; // Pregunta al usuario/a si quiere continuar.
+            
+                try 
+                {
+                    validador = Utilidades.compruebaDecisionUsuario(decision) ; // Comprueba si la decisión es válida...
+                } 
+                catch (ExcepcionDecisionUsuario e) {
+                    
+                    System.out.println(e.getMessage()); // ...y si no lo es capturará la excepción.
+                }
+                
+            } while (!validador); // Sale del bucle si la respuesta es válida.
+            
+        validador = Utilidades.distingueEntreSiYNo(decision) ; // Dependiendo de la decisión que se haya tomado (sí o no) se seguirá o no la ejecución.
+        
+        return validador ;
+    }
+    
 }

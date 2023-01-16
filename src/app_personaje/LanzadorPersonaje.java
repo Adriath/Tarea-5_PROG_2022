@@ -20,7 +20,7 @@ public class LanzadorPersonaje {
     */
     
     /* Hola Adrián. Tienes que hacer lo siguiente:
-     * - Debes mudar los m�İtodos de aqu�­ a la clase Personaje.
+     * - Debes mudar los métodos de aquí­ a la clase Personaje.
      * - Cambiar el método batalla() para que en vez de void sea booleano
      * - Aħadir lo que falta del enunciado, como el empate en el final de la batalla
      * o los mensajes que tienen que aparecer.
@@ -41,118 +41,6 @@ public class LanzadorPersonaje {
         System.out.println("7. Salir");
     }
     
-    
-    private static void modificaPersonaje(Personaje p){ // MODIFICA PRESONAJE
-        
-        String nombre ;
-        byte inteligencia ;
-        byte fuerza ;
-        
-        int opcion ;
-        boolean validador = false ;
-        
-        do 
-        {
-            System.out.println("\n¿Qué atributo quieres modificar?\n");
-            
-            System.out.println("1. NOMBRE");
-            System.out.println("2. INTELIGENCIA");
-            System.out.println("3. FUERZA");
-            System.out.println("4. TODO");
-            System.out.println("5. DEJARLO COMO ESTÁ");
-
-            opcion = Utilidades.leerEntero("\nElige una opción:\n") ;
-        
-      
-            switch (opcion)
-            {
-                case 1: // MODIFICA NOMBRE
-                    
-                    nombre = Utilidades.leerString("¿Cómo quieres que se llame el personaje?") ;
-                    p.setNombre(nombre);
-                    
-                    System.out.println("\nEl nombre del personaje ha sido modificado.\n");
-                    
-                    validador = true ;
-
-                    break;
-                
-                case 2: // MODIFICA INTELIGENCIA
-                    
-                    do // Repite la instrucción hasta que los valores sean válidos.
-                    {
-                        try
-                        {
-                            inteligencia = Utilidades.leerByte("¿Cuántos puntos de inteligencia quieres que tenga el personaje?") ;
-                            p.setInteligencia(inteligencia);
-                            
-                            validador = true ;
-                        }
-                        catch (ExcepcionPersonaje e){
-                            System.out.println(e.getMessage());
-                        }
-                        catch (Exception e){
-                            System.out.println("Algo ocurrió.");
-                        }
-                        
-                    } while (!validador);
-                    
-                    System.out.println("\nLa inteligencia del personaje  ha sido modificada.");
-                    
-                    break;
-                    
-                 case 3: // MODIFICA FUERZA
-                    
-                    do // Repite la instrucción hasta que los valores sean válidos.
-                    {
-                        try
-                        {
-                            fuerza = Utilidades.leerByte("¿Cuántos puntos de fuerza quieres que tenga el personaje?") ;
-                            p.setFuerza(fuerza);
-                            
-                            validador = true ;
-                        }
-                        catch (ExcepcionPersonaje e){
-                            System.out.println(e.getMessage());
-                        }
-                        catch (Exception e){
-                            System.out.println("Algo ocurrió.");
-                        }
-                        
-                    } while (!validador);
-                    
-                     System.out.println("\nLa fuerza del personaje ha sido modificada.\n");
-                    
-                    break;
-                    
-                 case 4: // MODIFICA TODO
-                     
-                     Personaje.crearPersonaje(p) ; // Este método hará que se modifiquen todos los parámetros.
-                     
-                     System.out.println("\nEl personaje ha sido modificado.\n");
-                     
-                     validador = true ;
-                     
-                     break;
-                     
-                 case 5: // NO REALIZA NINGÚN CAMBIO
-                     
-                     System.out.println("\nNo se ha realizado ningún cambio. Volviendo al menú.\n");
-                     
-                     validador = true ;
-                     
-                     break;
-                     
-                 default: // SI SE ESCOGE UNA OPCIÓN NO VÁLIDA
-                     
-                     System.out.println("\nDebes escoger una opción entre 1 y 5.\n");
-                     
-                     break;
-                     
-            }
-            
-        } while (!validador);
-    }
     
     private static void muestraPersonajes(Personaje p1, Personaje p2){
         
@@ -271,7 +159,7 @@ public class LanzadorPersonaje {
                         {
                             System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 1 --\n");
                             
-                            modificaPersonaje(personaje1);
+                            Personaje.modificaPersonaje(personaje1);
                         }
                         else // Si no está creado avisará y saldrá al menú.
                         {
@@ -286,7 +174,7 @@ public class LanzadorPersonaje {
                         {
                             System.out.println("\n-- ESTÁS MODIFICANDO EL PERSONAJE 2 --\n");
                             
-                            modificaPersonaje(personaje2);
+                            Personaje.modificaPersonaje(personaje2);
                         }
                         else // Si no está creado avisará y saldrá al menú.
                         {

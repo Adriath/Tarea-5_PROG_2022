@@ -179,6 +179,119 @@ public class Personaje {
         
     }
         
+    
+    public static void modificaPersonaje(Personaje p){ // MODIFICA PRESONAJE
+        
+        String nombre ;
+        byte inteligencia ;
+        byte fuerza ;
+        
+        int opcion ;
+        boolean validador = false ;
+        
+        do 
+        {
+            System.out.println("\n¿Qué atributo quieres modificar?\n");
+            
+            System.out.println("1. NOMBRE");
+            System.out.println("2. INTELIGENCIA");
+            System.out.println("3. FUERZA");
+            System.out.println("4. TODO");
+            System.out.println("5. DEJARLO COMO ESTÁ");
+
+            opcion = Utilidades.leerEntero("\nElige una opción:\n") ;
+        
+      
+            switch (opcion)
+            {
+                case 1: // MODIFICA NOMBRE
+                    
+                    nombre = Utilidades.leerString("¿Cómo quieres que se llame el personaje?") ;
+                    p.setNombre(nombre);
+                    
+                    System.out.println("\nEl nombre del personaje ha sido modificado.\n");
+                    
+                    validador = true ;
+
+                    break;
+                
+                case 2: // MODIFICA INTELIGENCIA
+                    
+                    do // Repite la instrucción hasta que los valores sean válidos.
+                    {
+                        try
+                        {
+                            inteligencia = Utilidades.leerByte("¿Cuántos puntos de inteligencia quieres que tenga el personaje?") ;
+                            p.setInteligencia(inteligencia);
+                            
+                            validador = true ;
+                        }
+                        catch (ExcepcionPersonaje e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch (Exception e){
+                            System.out.println("Algo ocurrió.");
+                        }
+                        
+                    } while (!validador);
+                    
+                    System.out.println("\nLa inteligencia del personaje  ha sido modificada.");
+                    
+                    break;
+                    
+                 case 3: // MODIFICA FUERZA
+                    
+                    do // Repite la instrucción hasta que los valores sean válidos.
+                    {
+                        try
+                        {
+                            fuerza = Utilidades.leerByte("¿Cuántos puntos de fuerza quieres que tenga el personaje?") ;
+                            p.setFuerza(fuerza);
+                            
+                            validador = true ;
+                        }
+                        catch (ExcepcionPersonaje e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch (Exception e){
+                            System.out.println("Algo ocurrió.");
+                        }
+                        
+                    } while (!validador);
+                    
+                     System.out.println("\nLa fuerza del personaje ha sido modificada.\n");
+                    
+                    break;
+                    
+                 case 4: // MODIFICA TODO
+                     
+                     Personaje.crearPersonaje(p) ; // Este método hará que se modifiquen todos los parámetros.
+                     
+                     System.out.println("\nEl personaje ha sido modificado.\n");
+                     
+                     validador = true ;
+                     
+                     break;
+                     
+                 case 5: // NO REALIZA NINGÚN CAMBIO
+                     
+                     System.out.println("\nNo se ha realizado ningún cambio. Volviendo al menú.\n");
+                     
+                     validador = true ;
+                     
+                     break;
+                     
+                 default: // SI SE ESCOGE UNA OPCIÓN NO VÁLIDA
+                     
+                     System.out.println("\nDebes escoger una opción entre 1 y 5.\n");
+                     
+                     break;
+                     
+            }
+            
+        } while (!validador);
+    }
+    
         
     private void restarVida(){ // METODO PARA RESTAR VIDA
         

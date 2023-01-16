@@ -157,7 +157,23 @@ public class LanzadorPersonaje {
 
                         if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
                         {
-                            System.out.println("\n\tBATALLA " + contadorBatalla); // Mensaje que indica el número de batalla que se está librando.
+                            System.out.println("-------------------------------------------------------");
+                            System.out.println("\t __  __          __      ___      \n" +
+                            "\t/   /  \\ |\\/| | |_  |\\ |  _/  /\\  \n" +
+                            "\t\\__ \\__/ |  | | |__ | \\| /__ /--\\ \n" +
+                            "\t                                  ");
+                            System.out.println("      \n" +
+                            "\t\t\t|  _  \n" +
+                            "\t\t\t| (_| \n" +
+                            "\t\t\t      ");
+                            System.out.println(" \t__                       __    __       \n" +
+                            "\t(_  | |\\/| /  \\ |    /\\  /   | /  \\ |\\ | \n" +
+                            "\t__) | |  | \\__/ |__ /--\\ \\__ | \\__/ | \\| \n" +
+                            "\t                                         ");
+                            System.out.println("-------------------------------------------------------");
+                            
+                            System.out.println("\n-----------------------");
+                            System.out.println("\tBATALLA " + contadorBatalla); // Mensaje que indica el número de batalla que se está librando.
                             System.out.println("-----------------------\n");
                             
                             validador = personaje1.batalla(personaje2);

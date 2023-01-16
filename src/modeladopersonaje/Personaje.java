@@ -509,19 +509,46 @@ public class Personaje {
         
         if ((this.compruebaVida()) & !(p.compruebaVida())) // --> Si personaje 1 muere pero personaje 2 sobrevive: gana personaje 2.
         {
-            System.out.println("GANA EL PERSONAJE 2"); // -------------- PROVISIONAL
+            System.out.println("██    ██ ███████ ███    ██  ██████ ███████      ██████  ██████  ███    ███ ██████   █████  ████████ ██ ███████ ███    ██ ████████ ███████     ██████  \n" +
+"██    ██ ██      ████   ██ ██      ██          ██      ██    ██ ████  ████ ██   ██ ██   ██    ██    ██ ██      ████   ██    ██    ██               ██ \n" +
+"██    ██ █████   ██ ██  ██ ██      █████       ██      ██    ██ ██ ████ ██ ██████  ███████    ██    ██ █████   ██ ██  ██    ██    █████        █████  \n" +
+" ██  ██  ██      ██  ██ ██ ██      ██          ██      ██    ██ ██  ██  ██ ██   ██ ██   ██    ██    ██ ██      ██  ██ ██    ██    ██          ██      \n" +
+"  ████   ███████ ██   ████  ██████ ███████      ██████  ██████  ██      ██ ██████  ██   ██    ██    ██ ███████ ██   ████    ██    ███████     ███████ \n" +
+"                                                                                                                                                      \n" +
+"                                                                                                                                                      "); // -------------- PROVISIONAL
 
+            System.out.println("// En un enfrentamiento directo está claro que ganaría " + p.getNombre() + "."
+                    + "\n// Hemos obtenido interesantes datos de este combate. Anotando posibles mejoras en el Compuesto V.\n");
+            
             finalizaBatalla = true ;
         }
         else if ((p.compruebaVida()) & !(this.compruebaVida())) // --> Si personaje 2 muere pero personaje 1 sobrevive: gana personaje 1.
         {
-            System.out.println("GANA EL PERSONAJE 1"); // -------------- PROVISIONAL
+            System.out.println("██    ██ ███████ ███    ██  ██████ ███████      ██████  ██████  ███    ███ ██████   █████  ████████ ██ ███████ ███    ██ ████████ ███████      ██ \n" +
+"██    ██ ██      ████   ██ ██      ██          ██      ██    ██ ████  ████ ██   ██ ██   ██    ██    ██ ██      ████   ██    ██    ██          ███ \n" +
+"██    ██ █████   ██ ██  ██ ██      █████       ██      ██    ██ ██ ████ ██ ██████  ███████    ██    ██ █████   ██ ██  ██    ██    █████        ██ \n" +
+" ██  ██  ██      ██  ██ ██ ██      ██          ██      ██    ██ ██  ██  ██ ██   ██ ██   ██    ██    ██ ██      ██  ██ ██    ██    ██           ██ \n" +
+"  ████   ███████ ██   ████  ██████ ███████      ██████  ██████  ██      ██ ██████  ██   ██    ██    ██ ███████ ██   ████    ██    ███████      ██ \n" +
+"                                                                                                                                                  \n" +
+"                                                                                                                                                  "); // -------------- PROVISIONAL
 
+            System.out.println("// Tras analizar los datos llegamos a la conclusión de que " + this.nombre + " aplastaría a su rival."
+                    + "\n// Los datos resultan inquietantes, sugiero reforzar la vigilancia del grupo conocido como The Boys por su alta peligrosidad.\n");
+            
             finalizaBatalla = true ;
         }
         else if ((this.compruebaVida()) & (p.compruebaVida())) // --> Si ambos mueren: empate.
         {
-            System.out.println("EMPATE."); // --------------------- PROVISIONAL
+            System.out.println("███████ ███    ███ ██████   █████  ████████ ███████ \n" +
+"██      ████  ████ ██   ██ ██   ██    ██    ██      \n" +
+"█████   ██ ████ ██ ██████  ███████    ██    █████   \n" +
+"██      ██  ██  ██ ██      ██   ██    ██    ██      \n" +
+"███████ ██      ██ ██      ██   ██    ██    ███████ \n" +
+"                                                    \n" +
+"                                                    ");
+            
+            System.out.println("// Reportando error del sistema, esto no debería pasar."
+                    + "\n// Quizás haya llegado el momento de hacer cambios en la división informática.\n");
             
             finalizaBatalla = true ;
         }
@@ -535,7 +562,7 @@ public class Personaje {
 
         // Mostramos de nuevo el estado de los personajes tras haber librado la batalla.
         
-        System.out.println("\nDESPUÉS DE LA BATALLA\n");
+        System.out.println("\n-- RESULTADOS TRAS LA BATALLA --\n");
         muestraPersonajes(this, p);
     
         return finalizaBatalla ;        

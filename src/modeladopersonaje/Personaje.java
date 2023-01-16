@@ -292,6 +292,12 @@ public class Personaje {
         } while (!validador);
     }
     
+    
+    public static void muestraPersonajes(Personaje p1, Personaje p2){ // MUESTRA VALORES DE LOS DOS PERSONAJES
+        
+        System.out.println(p1.toString());
+        System.out.println(p2.toString());
+    }
         
     private void restarVida(){ // METODO PARA RESTAR VIDA
         
@@ -358,14 +364,15 @@ public class Personaje {
     }
     
         
-    public void batalla(Personaje p){ // MÉTODO DE BATALLA
+    public boolean batalla(Personaje p){ // MÉTODO DE BATALLA
         
         short poderPersonaje1 ; // Personaje invocador del método.
         short poderPersonaje2 ; // Personaje pasado por parámetros.
         
+        boolean finalizaBatalla = false ;
         
-        poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ;
-        poderPersonaje2 = (short)(p.fuerza + p.inteligencia) ;
+        poderPersonaje1 = (short)(this.fuerza + this.inteligencia) ; // Fuerza más inteligencia del personaje 1.
+        poderPersonaje2 = (short)(p.fuerza + p.inteligencia) ; // Fuerza más inteligencia del personaje 2.
 
         if (poderPersonaje1 > poderPersonaje2) // Si el P1 supera al P2...
         {
@@ -381,5 +388,30 @@ public class Personaje {
             p.restarVida(); // ...y a P2.
         }
         
+        // SEGUNDA PARTE --------------------- PROVISIONAL
+        
+        if ((this.compruebaVida()) & !(p.compruebaVida())) 
+        {
+            System.out.println("GANA EL PERSONAJE 2"); // -------------- PROVISIONAL
+
+            finalizaBatalla = true ;
+        }
+        else if ((p.compruebaVida()) & !(this.compruebaVida())) 
+        {
+            System.out.println("GANA EL PERSONAJE 1"); // -------------- PROVISIONAL
+
+            finalizaBatalla = true ;
+        }
+        else if ((this.compruebaVida()) & (p.compruebaVida()))
+        {
+            System.out.println("EMPATE."); // --------------------- PROVISIONAL
+            
+            finalizaBatalla = true ;
+        }
+
+        this.valoresAleatorios();
+        p.valoresAleatorios();
+    
+        return finalizaBatalla ;        
     }
 }

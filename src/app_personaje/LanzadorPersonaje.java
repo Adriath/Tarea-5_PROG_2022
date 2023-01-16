@@ -42,12 +42,6 @@ public class LanzadorPersonaje {
     }
     
     
-    private static void muestraPersonajes(Personaje p1, Personaje p2){
-        
-        System.out.println(p1.toString());
-        System.out.println(p2.toString());
-    }
-    
     public static void main(String[] args) { // -------------------- MÉTODO MAIN -----------------------------
 
         try
@@ -115,23 +109,7 @@ public class LanzadorPersonaje {
                         
                         if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
                         {
-                            personaje1.batalla(personaje2);
-                            
-                            if (personaje1.compruebaVida()) 
-                            {
-                                System.out.println("GANA EL PERSONAJE 2"); // -------------- PROVISIONAL
-                                
-                                validador = true ;
-                            }
-                            else if (personaje2.compruebaVida()) 
-                            {
-                                System.out.println("GANA EL PERSONAJE 1"); // -------------- PROVISIONAL
-                                
-                                validador = true ;
-                            }
-                            
-                            personaje1.valoresAleatorios();
-                            personaje2.valoresAleatorios();
+                            validador = personaje1.batalla(personaje2);
                         }
                         else // Si los personajes no están creados avisará con un mensaje y saldrá al menú.
                         {
@@ -144,7 +122,7 @@ public class LanzadorPersonaje {
                     
                         if (personaje1Creado & personaje2Creado) // Si los peronsajes están creados los muestra.
                         {
-                            muestraPersonajes(personaje1, personaje2);
+                            Personaje.muestraPersonajes(personaje1, personaje2);
                         }
                         else // Si los personajes no están creados avisará con un mensaje y no los mostrará.
                         {

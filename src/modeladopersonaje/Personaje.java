@@ -160,7 +160,11 @@ public class Personaje {
 
         @Override // -------------------------------- MODIFICAAAAAAAAAAAAAAAAAR --------------------
         public String toString() {
-            return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", inteligencia=" + inteligencia + ", fuerza=" + fuerza + '}';
+            
+            return "NOMBRE: " + nombre + "\n\n"
+                    + "\tVIDA: " + vida + "\n"
+                    + "\tFUERZA: " + fuerza + "\n"
+                    + "\tINTELIGENCIA: " + inteligencia + "\n" ;
         }
  
     // ---------------- MÉTODOS ------------------
@@ -361,7 +365,12 @@ public class Personaje {
      */
     public static void muestraPersonajes(Personaje p1, Personaje p2){
         
+        System.out.println("\nDATOS DEL COMBATIENTE 1");
+        System.out.println("-----------------------");
         System.out.println(p1.toString());
+        
+        System.out.println("\nDATOS DEL COMBATIENTE 2");
+        System.out.println("-----------------------");
         System.out.println(p2.toString());
     }
         
@@ -521,7 +530,7 @@ public class Personaje {
             this.valoresAleatorios(); // Modificamos atributos aleatoriamente del personaje 1.
             p.valoresAleatorios(); // Modificamos atributos aleatoriamente del personaje 2.
         
-            System.out.println("\nTeniendo en cuenta las condiciones de la batalla se han actualizado los parámetros de los combatientes.\n");
+            System.out.println("\n -- Teniendo en cuenta las condiciones de la batalla se han actualizado los parámetros de los combatientes.-- \n");
         }
 
         // Mostramos de nuevo el estado de los personajes tras haber librado la batalla.

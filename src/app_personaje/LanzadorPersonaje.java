@@ -27,7 +27,9 @@ public class LanzadorPersonaje {
      */
     private static void mostrarMenu(){
         
-        System.out.println("\n-------- MENÚ --------\n");
+        System.out.println("\n----------------------");
+        System.out.println("-------- MENÚ --------");
+        System.out.println("----------------------\n");
         
         System.out.println("1. Crear personaje 1");
         System.out.println("2. Crear personaje 2");
@@ -87,7 +89,7 @@ public class LanzadorPersonaje {
             System.out.println("****************************************************************************************************************************");
             System.out.println("****************************************************************************************************************************");
             
-            System.out.println("\n\t¡BRECHA DE SEGURIDAD DETECTADA!\n");
+            System.out.println("\n\t---------- ¡BRECHA DE SEGURIDAD DETECTADA! -----------\n");
             
             Utilidades.leerString("\nIntroduce la contraseña para continuar:"); 
                     System.out.println("Contraseña correcta.\n");
@@ -155,7 +157,8 @@ public class LanzadorPersonaje {
 
                         if (personaje1Creado & personaje2Creado) // Si los personajes han sido creados procederá a la batalla.
                         {
-                            System.out.println("\nBATALLA " + contadorBatalla + "\n"); // Mensaje que indica el número de batalla que se está librando.
+                            System.out.println("\n\tBATALLA " + contadorBatalla); // Mensaje que indica el número de batalla que se está librando.
+                            System.out.println("-----------------------\n");
                             
                             validador = personaje1.batalla(personaje2);
                             
@@ -241,7 +244,7 @@ public class LanzadorPersonaje {
             System.out.println("\tCERRANDO SISTEMA");
             System.out.println("------------------------------\n");
             
-            System.out.println("\nHACIENDO TU VIDA MÁS SEGURA.\n");
+            System.out.println("\n\"HACIENDO TU VIDA MÁS SEGURA\".\n");
             
             System.out.println("****************************************************************************************************************************");
             System.out.println("****************************************************************************************************************************");

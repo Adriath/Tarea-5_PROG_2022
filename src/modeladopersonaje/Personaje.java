@@ -62,7 +62,7 @@ public class Personaje {
      * @param nombre String. Nombre del personaje.
      * @param inteligencia byte. Inteligencia del personaje.
      * @param fuerza byte. Fuerza del personaje.
-     * @throws ExcepcionPersonaje 
+     * @throws ExcepcionPersonaje Controla que los valores sean los permitidos.
      */
     public Personaje(String nombre, byte inteligencia, byte fuerza) throws ExcepcionPersonaje{
         this.nombre = nombre ;
@@ -113,7 +113,7 @@ public class Personaje {
          * El valor tiene que estar entre los valores permitidos.
          * 
          * @param inteligencia byte. Inteligencia del personaje.
-         * @throws ExcepcionPersonaje 
+         * @throws ExcepcionPersonaje Controla que los valores sean los permitidos.
          */
         public void setInteligencia(byte inteligencia) throws ExcepcionPersonaje{
             if ((inteligencia >= MIN_INTELIGENCIA) && (inteligencia <= MAX_INTELIGENCIA)) 
@@ -143,7 +143,7 @@ public class Personaje {
          * El valor tiene que estar entre los valores permitidos.
          * 
          * @param fuerza byte. Fuerza del personaje.
-         * @throws ExcepcionPersonaje 
+         * @throws ExcepcionPersonaje Controla que los valores sean los permitidos.
          */
         public void setFuerza(byte fuerza) throws ExcepcionPersonaje{
             if ((fuerza >= MIN_FUERZA) && (fuerza <= MAX_FUERZA)) 
@@ -519,7 +519,7 @@ public class Personaje {
 "                                                                                                                                                      "); // -------------- PROVISIONAL
 
             System.out.println("// En un enfrentamiento directo está claro que ganaría " + p.getNombre() + "."
-                    + "\n// Hemos obtenido interesantes datos de este combate. Anotando posibles mejoras en el Compuesto V.\n");
+                    + "\n// Hemos obtenido interesantes datos de este combate. Anotando posibles mejoras para el Compuesto V.\n");
             
             finalizaBatalla = true ;
         }

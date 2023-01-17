@@ -6,6 +6,7 @@ import utilidades.Utilidades;
 
 /**
  * Clase en la que se modela a los personajes que van a participar en la batalla.
+ * También alberga los métodos para las interacciones y cambios de atributos.
  * 
  * @author Adrián Arjona
  */
@@ -131,7 +132,7 @@ public class Personaje {
         /**
          * Método que muestra la fuerza del personaje.
          * 
-         * @return 
+         * @return Tipo byte. Duvuelve la fuerza del personaje.
          */
         public byte getFuerza() {
             return fuerza;
@@ -158,7 +159,7 @@ public class Personaje {
         
         // TO STRING
 
-        @Override // -------------------------------- MODIFICAAAAAAAAAAAAAAAAAR --------------------
+        @Override
         public String toString() {
             
             return "NOMBRE: " + nombre + "\n\n"
@@ -467,7 +468,7 @@ public class Personaje {
      * Si alguno de los dos muere (o los dos) mostrará un mensaje.
      * 
      * @param p
-     * @return 
+     * @return tipo boolean. Dvuelve true si algún peronaje ha muerto y false si sobreviven.
      */
     public boolean batalla(Personaje p){
         

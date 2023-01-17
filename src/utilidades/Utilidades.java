@@ -135,9 +135,9 @@ public class Utilidades {
     /**
      * Método que extraerá la decisión del usuario, previamente validada con el método compruebaDecisionUsuario().
      * 
-     * @param decision
+     * @param decision String. Mensaje al usuario/a.
      * @see compruebaDecisionUsuario()
-     * @return 
+     * @return tipo boolean. Devuelve false si la respuesta es positiva y true si la respuesta es negativa.
      */
     public static boolean distingueEntreSiYNo(String decision){
         
@@ -155,7 +155,7 @@ public class Utilidades {
         return respuesta ;
     }
     
-      /**
+    /**
      * Método que unifica los métodos compruebaDecisionUsuario() y distingueEntreSiYNo().
      * Preguntará al usuario/a si quieres salir. Si la respuesta es válida la almacenará y evaluará.
      * 
